@@ -50,8 +50,56 @@ class PasswordManager(object):
 
 
 
-pm = PasswordManager()
-pm.create_key("mykey.key")
+def main():
+	sample_passwords = {
+			"email":"1234567"
+			"yotube":"añsdolhanñskdlas´d"
+			"some_site":"1231c eṕ2jipqwsjad"
+	}
 
+	pm = PasswordManager()
 
+	print(""" 
 
+		What do you want to do?:
+
+		(1): Create a new Key
+		(2): Get an existing Key
+		(3): Create new Password File
+		(4): Load exisiting Password File
+		(5): Add a new Password
+		(6): Get a New Password
+		(q): Quit
+
+		""")
+
+	done = False
+
+	while not done:
+
+		choice = input("Enter yput choice: ")
+		if choice == "1":
+			path = input("Enter Path: ")
+			pm.create_key(path)
+		elif choice == "2":
+			path = input("Enter Path: ")
+			pm.load_key(path)
+		elif choice == "3":
+			path = input("Enter Path: ")
+			pm.create_password_file(path, sample_passwords)
+		elif choice == "4":
+			path = input("Enter Path: ")
+			pm.load_password_file(path)
+		elif choice == "5":
+			path = input("Enter Path: ")
+			site = input("Enter the site: ")
+			password = input("Enter the Password: ")
+			pm.add_password(site, password)
+		elif choice == "6":
+			site = input("Enter the site: ")
+			print(f"Password for {site} is {pm.get_password(site)}")
+		elif choice == "q":
+			done = True
+			print("bye!")
+		else:
+			print("Invalid chice!")

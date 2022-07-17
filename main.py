@@ -61,11 +61,11 @@ class PasswordManager(object):
 
 
 			 __                   _          _______ _            _                _    
- \ \        / / | |                          | |        |__   __| |          | |              | |   
-  \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___      | |  | |__   ___  | |     ___   ___| | __
-   \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \     | |  | '_ \ / _ \ | |    / _ \ / __| |/ /
-    \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) |    | |  | | | |  __/ | |___| (_) | (__|   < 
-     \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/     |_|  |_| |_|\___| |______\___/ \___|_|\_\
+ \ \        / / | |                          | |       |__   __| |          | |              | |   
+  \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ ___     | |  | |__   ___  | |     ___   ___| | __
+   \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \    | |  | '_ \ / _ \ | |    / _ \ / __| |/ /
+    \  /\  /  __/ | (_| (_) | | | | | |  __/ | || (_) |   | |  | | | |  __/ | |___| (_) | (__|   < 
+     \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/    |_|  |_| |_|\___| |______\___/ \___|_|\_\
                                                                                                     
                                                                                                     
 
@@ -106,30 +106,30 @@ def main():
 
 		choice = input("Enter your choice: ")
 		if choice == "1":
-			path = input("Enter Path: ")
+			path = input("Enter the Path where you want to save the key-file: ")
 			pm.create_key(path)
 		elif choice == "2":
-			path = input("Enter Path: ")
+			path = input("Enter the Path where the key-file is stored: ")
 			pm.load_key(path)
 		elif choice == "3":
-			path = input("Enter Path: ")
+			path = input("Enter the Path of the key-file you want to delete: ")
 			pm.delete_key(path)
 		elif choice == "4":
-			path = input("Enter Path: ")
+			path = input("Enter the Path where you want to save the password-file: ")
 			pm.create_password_file(path, sample_passwords)
 		elif choice == "5":
-			path = input("Enter Path: ")
+			path = input("Enter the Path where the password-file is stored: ")
 			pm.load_password_file(path)
 		elif choice == "6":
-			path = input("Enter Path: ")
-			site = input("Enter the site: ")
+			path = input("Enter the Path of the password-file where you want to add the password: ")
+			site = input("Enter the Site: ")
 			password = input("Enter the Password: ")
 			pm.add_password(site, password)
 		elif choice == "7":
-			site = input("Enter the site: ")
+			site = input("Enter the Site of the Password you want to retrieve: ")
 			print(f"Password for {site} is {pm.get_password(site)}")
 		elif choice == "8":
-			path = input("Enter Path: ")
+			path = input("Enter Path of the password-file you want to see: ")
 			pm.print_password_file(path)
 		elif choice == "m":
 			pm.show_menu()

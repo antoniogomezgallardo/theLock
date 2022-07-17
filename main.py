@@ -51,6 +51,10 @@ class PasswordManager(object):
 	def get_password(self, site):
 		return self.password_dict[site]
 
+	def print_password_file(self, path):
+		for site, key in self.password_dict.items():
+			print(site + " : " + key)
+
 	def show_menu(self):
 		print(""" 
 
@@ -76,7 +80,8 @@ class PasswordManager(object):
 			(4): Create new Password File
 			(5): Load exisiting Password File
 			(6): Add a new Password
-			(7): Get a New Password
+			(7): Get an existing Password from loaded file
+			(8): Print all existing Passwords in loaded file
 			(m): Show Menu
 			(q): Quit
 
@@ -123,6 +128,9 @@ def main():
 		elif choice == "7":
 			site = input("Enter the site: ")
 			print(f"Password for {site} is {pm.get_password(site)}")
+		elif choice == "8":
+			path = input("Enter Path: ")
+			pm.print_password_file(path)
 		elif choice == "m":
 			pm.show_menu()
 		elif choice == "q":

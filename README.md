@@ -24,6 +24,11 @@ b'my deep dark secret'
 
 ## Usage
 
+run from the root directory:
+```
+python main.py 
+```
+
 ```bash
                          __                   _          _______ _            _                _    
  \ \        / / | |                          | |        |__   __| |          | |              | |   
